@@ -33,19 +33,52 @@ python barebone.py runserver
 
 ## Build and run it with Docker
 
-Build it via the local `Dockerfile`
+#### Build it via the local `Dockerfile`
 
 ```
 docker built -t djangoapp .
 ```
 
-And then run it on port 8000
+#### And then run it on port 8000
 
 ```
 docker run -d -p 8000:8000 djangoapp
 ```
 
 Go to http://localhost:8000 to see that the app works
+
+#### Jump into the running Docker container
+
+You can run `docker ps` in order to see all the running containers
+
+```
+docker ps
+```
+
+And the output should be something similar to the one below
+
+```
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
+0f61b4378dc3        django              "uwsgi --http :8000 …"   28 minutes ago      Up 28 minutes       0.0.0.0:8000->8000/tcp   awesome_perlman
+```
+
+And after that if You want to jump into an interactive shell You can run the command below
+
+```
+docker exec -it awesome_perlman /bin/bash
+```
+
+You can also run a single command like below, in our example we want to see all the files in our root folder
+
+```
+docker exec -it awesome_perlman ls
+```
+
+And the output is
+
+```
+Dockerfile  README.md  __pycache__  barebone.py  now.json  requirements.txt
+```
 
 ---
 
