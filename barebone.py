@@ -37,6 +37,7 @@ urlpatterns = (
 # This part should reside in wsgi.py
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
+app = get_wsgi_application()
 
 
 # This part should reside in manage.py
