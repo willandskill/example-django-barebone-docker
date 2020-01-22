@@ -36,7 +36,7 @@ python barebone.py runserver
 #### Build it via the local `Dockerfile`
 
 ```
-docker built -t djangoapp .
+docker build -t djangoapp .
 ```
 
 #### And then run it on port 8000
